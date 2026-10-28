@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dafa67">
+  <meta name="description" content="Explora UNIGLO: prototipo para comprar y vender ropa de segunda mano en CDMX y Estado de México. Catálogo ficticio y pruebas anónimas.">
+  <meta name="referrer" content="no-referrer">
+  <title>UNIGLO — Ropa con otra historia</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="catalogo.js"></script>
+  <script defer src="core.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
+  <div class="announcement"><span>PRENDAS CON HISTORIA. NUEVOS COMIENZOS.</span><span>CDMX + EDOMEX</span></div>
+  <header class="site-header wrap">
+    <a href="#inicio" class="brand" aria-label="UNIGLO, inicio">UNIGLO</a>
+    <nav aria-label="Navegación principal"><a href="#catalogo">Explorar</a><a href="#como-funciona">Cómo funciona</a><a class="nav-sell" href="#vender">Quiero vender <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section id="inicio" class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="small-dot"></span> SEGUNDA MANO, PRIMERA OPCIÓN</p>
+        <h1 id="hero-title">Dale una<br><span>segunda vida</span><br>a tu <em>ropa.</em></h1>
+        <p class="hero-description">Compra y vende ropa de segunda mano cerca de ti.</p>
+        <p class="hero-place">Para jóvenes de 18 a 30 años en CDMX y Estado de México.</p>
+        <div class="hero-actions"><a class="button primary" href="#catalogo">Explorar prendas <span aria-hidden="true">↗</span></a><a class="text-link" href="#vender">Quiero vender <span aria-hidden="true">→</span></a></div>
+        <p class="prototype-note">MVP V1 · Prendas ficticias. Todas las interacciones son simuladas.</p>
+      </div>
+      <div class="hero-art">
+        <span class="hero-orbit" aria-hidden="true"></span>
+        <svg class="hero-squiggle" viewBox="0 0 180 90" fill="none" aria-hidden="true"><path d="M8 71C48 80 11 6 49 16s-4 72 34 58 3-70 40-55 26 40 48 23" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>
+        <figure class="hero-photo"><img src="assets/playera.jpg" width="720" height="900" fetchpriority="high" alt="Playera blanca con jeans, fotografía de referencia"><figcaption><span class="image-label">FOTOGRAFÍA DE REFERENCIA</span></figcaption></figure>
+        <figure class="hero-mini-photo"><img src="assets/denim.jpg" width="720" height="900" alt="Chamarra de mezclilla, fotografía de referencia"><figcaption>BUENAS PRENDAS.<br>NUEVAS HISTORIAS.</figcaption></figure>
+        <div class="hero-sticker" aria-hidden="true"><span>OTRA VIDA.</span><strong>MISMO<br>ESTILO.</strong></div>
+      </div>
+    </section>
+    <div class="principles wrap" id="como-funciona"><p><span>01</span> Encuentra algo que vaya contigo.</p><p><span>02</span> Revisa cada detalle.</p><p><span>03</span> Prueba cómo sería conectar.</p></div>
+    <section id="catalogo" class="catalog-section wrap" aria-labelledby="catalog-title">
+      <div class="section-heading"><div><p class="eyebrow">EL SIGUIENTE CAPÍTULO EMPIEZA AQUÍ</p><h2 id="catalog-title">Encuentra tu próxima favorita<span class="accent">.</span></h2></div><span class="collection-label">COLECCIÓN DE PRUEBA / 001</span></div>
+      <div class="catalog-notice"><span class="outlined-tag">CATÁLOGO FICTICIO</span><p>Estas prendas y sus características son ejemplos para explorar. Las fotos son de referencia; no hay artículos a la venta.</p></div>
+      <form id="filtersForm" class="filters" role="search" aria-label="Buscar y filtrar prendas">
+        <label class="search-field"><span class="sr-only">Buscar prenda</span><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="search" type="search" maxlength="70" placeholder="Busca una prenda o marca" autocomplete="off" aria-describedby="searchHint"></label>
+        <label class="select-field"><span>Talla</span><select id="sizeFilter"><option value="">Todas las tallas</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>28</option><option>30</option><option>32</option></select></label>
+        <label class="select-field"><span>Precio en MXN</span><select id="priceFilter"><option value="">Todos los precios</option><option value="under200">Hasta $200</option><option value="200to400">$200.01 a $400</option><option value="over400">Más de $400</option></select></label>
+        <button type="button" id="clearFilters" class="clear-button">Limpiar filtros</button>
+      </form>
+      <p id="searchHint" class="field-hint">Busca solo prendas o marcas. No escribas datos personales.</p>
+      <div class="catalog-toolbar"><div id="categoryFilters" class="category-filters" role="group" aria-label="Filtrar por categoría"></div><p id="resultCount" class="result-count" role="status" aria-live="polite"></p></div>
+      <div id="productGrid" class="product-grid"></div>
+      <div id="emptyState" class="empty-state" hidden><h3>No encontramos esa combinación.</h3><p>Prueba otra talla, categoría o rango de precio.</p><button class="button secondary" id="emptyReset">Ver todas las prendas</button></div>
+    </section>
+    <section id="vender" class="sell-section" aria-labelledby="sell-title">
+      <div class="wrap sell-layout"><div class="sell-copy"><p class="eyebrow">HAZ ESPACIO PARA LO QUE VIENE</p><h2 id="sell-title">Eso que ya no usas<br>puede ser el próximo<br><em>gran hallazgo.</em></h2><p>Prueba cómo sería publicar una prenda en UNIGLO. Solo necesitas sus detalles y un precio.</p><p class="sell-note">Es una simulación. El anuncio no se publica en el catálogo y no se guarda ningún texto libre.</p><button type="button" id="startSelling" class="button primary">Simular una publicación <span aria-hidden="true">↗</span></button></div><div class="sell-visual" aria-hidden="true"><span class="sell-visual-label">MENOS OLVIDADA.<br>MÁS ENCONTRADA.</span><div class="garment-outline"><svg viewBox="0 0 280 280" fill="none"><path d="m96 54 21-12c4 20 42 20 46 0l21 12 61 42-30 49-31-20v117H96V125l-31 20-30-49 61-42Z" stroke="currentColor" stroke-width="2"/><path d="M116 44c0 37 48 37 48 0M105 233h70M44 101l22 35M236 101l-22 35" stroke="currentColor" stroke-width="1"/></svg></div><span class="sell-visual-bottom">NUEVAS HISTORIAS, MISMAS PRENDAS. ↗</span></div></div>
+    </section>
+    <section class="how-section wrap" aria-labelledby="about-title"><div><p class="eyebrow">DE PERSONA A PERSONA</p><h2 id="about-title">Tu ropa sigue.<br>La historia también.</h2></div><div><p>UNIGLO propone conectar a quienes quieren vender su ropa con quienes buscan su próximo hallazgo. Sin comprar inventario, almacenar prendas ni hacer entregas.</p><p>En una versión futura, comprador y vendedor acordarían directamente los detalles. En este prototipo puedes explorar, expresar interés y simular una publicación.</p><a href="#catalogo" class="text-link">Volver a explorar <span aria-hidden="true">↑</span></a></div></section>
+  </main>
+  <footer class="site-footer wrap"><div><a href="#inicio" class="brand">UNIGLO</a><p>Dale una segunda vida a tu ropa.</p></div><div class="footer-tools"><span>PROTOTIPO DE VALIDACIÓN · V1</span><button id="openResearch" class="text-link" type="button">Modo investigador <span aria-hidden="true">↗</span></button><button id="openPrivacy" class="subtle-link" type="button">Acerca de los datos de prueba</button></div></footer>
+  <div id="researchStatus" class="research-status"><span id="sessionIndicator">Exploración libre · sin registro</span><button id="statusResearch" type="button">Investigador <span aria-hidden="true">↗</span></button></div>
+  <div id="storageWarning" class="storage-warning" role="status" hidden></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <dialog id="productDialog" class="product-dialog" aria-labelledby="productTitle"><button class="close-dialog" data-close="productDialog" aria-label="Cerrar detalle de prenda">×</button><div id="productContent"></div></dialog>
+
+  <dialog id="sellerDialog" class="flow-dialog" aria-labelledby="sellerTitle">
+    <button class="close-dialog" data-close="sellerDialog" aria-label="Cerrar simulación de publicación">×</button>
+    <div class="dialog-intro"><p class="eyebrow">TU PRENDA, OTRA HISTORIA</p><h2 id="sellerTitle">Simula tu anuncio.</h2><p>Usa un nombre ficticio para la prenda. No incluyas nombres, teléfonos, correos ni direcciones.</p><span class="outlined-tag">SIMULACIÓN · SIN PUBLICACIÓN REAL</span></div>
+    <form id="sellerForm" class="seller-form">
+      <div class="form-row"><label>Tipo de prenda<select id="sellerCategory" required><option value="">Selecciona una categoría</option><option>Playeras y camisas</option><option>Sudaderas y suéteres</option><option>Jeans y pantalones</option><option>Chamarras</option><option>Vestidos y otras prendas</option></select></label><label>Talla<select id="sellerSize" required><option value="">Selecciona una talla</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>28</option><option>30</option><option>32</option><option>Otra talla</option></select></label></div>
+      <label>Nombre o descripción breve<input id="sellerName" maxlength="80" required placeholder="Ej. Chamarra azul de mezclilla" autocomplete="off"><span class="field-hint">Solo aparece en tu vista previa; no se guarda ni se exporta.</span></label>
+      <div class="form-row"><label>Estado de conservación<select id="sellerCondition" required><option value="">Selecciona el estado</option><option>Como nueva</option><option>Muy buen estado</option><option>Buen estado, con detalles</option></select></label><label>Precio propuesto (MXN)<input id="sellerPrice" type="number" min="1" max="99999.99" step="0.01" inputmode="decimal" required placeholder="350.00"></label></div>
+      <p class="field-hint">De $1 a $99,999.99 MXN, hasta dos decimales. Sin fotografías ni datos de contacto.</p><button type="submit" class="button primary full">Crear vista previa <span aria-hidden="true">→</span></button>
+    </form>
+    <div id="sellerPreview" hidden></div>
+  </dialog>
+
+  <dialog id="researchDialog" class="research-dialog" aria-labelledby="researchTitle">
+    <button class="close-dialog" data-close="researchDialog" aria-label="Cerrar modo investigador">×</button>
+    <div class="dialog-intro"><p class="eyebrow">APRENDER ANTES DE CRECER</p><h2 id="researchTitle">Modo investigador</h2><p>Sesiones anónimas para observar interacciones e intenciones. Los resultados no representan compras ni ventas.</p></div>
+    <div class="local-notice"><strong>Solo en este navegador.</strong> Los registros se guardan localmente en este perfil y dirección del sitio. Exporta antes de borrar datos. No se sincronizan entre equipos ni navegadores.</div>
+    <div id="activeSessionInfo"></div>
+    <details id="newSessionDetails" class="new-session"><summary>Iniciar participante nuevo</summary><form id="sessionForm">
+      <label>ID anónimo (generado automáticamente)<input id="participantId" readonly aria-describedby="idHint"><span id="idHint" class="field-hint">Un código aleatorio; no uses nombres ni matrículas.</span></label>
+      <div class="form-row"><label>Segmento<select id="participantSegment" required><option value="">Selecciona un segmento</option><option value="estudiante">Estudiante universitario</option><option value="trabajador">Joven trabajador</option><option value="otro">Otro joven del mercado objetivo</option></select></label><label>Rol que explorará<select id="participantRole" required><option value="">Selecciona un rol</option><option value="comprador">Comprador</option><option value="vendedor">Vendedor</option><option value="ambos">Ambos</option></select></label></div>
+      <label class="check-line"><input id="localConsent" type="checkbox" required><span>La persona sabe que registraremos aquí sus acciones anónimas para esta prueba.</span></label><p class="field-hint">La nueva sesión limpia filtros y formularios. La anterior se conserva separada para exportar.</p><button class="button primary full" type="submit">Comenzar sesión de prueba <span aria-hidden="true">→</span></button>
+    </form></details>
+    <section class="results-section" aria-labelledby="resultsTitle"><div class="results-heading"><h3 id="resultsTitle">Resultados de la sesión</h3><span id="savedCount"></span></div><label>Sesión a consultar<select id="sessionSelect"><option value="">Aún no hay sesiones</option></select></label><div id="sessionSummary"></div><div id="exportActions" class="export-actions" hidden><button id="exportJSON" class="button secondary" type="button">Exportar JSON <span aria-hidden="true">↓</span></button><button id="exportCSV" class="button secondary" type="button">Exportar CSV <span aria-hidden="true">↓</span></button></div><details id="eventDetails" hidden><summary>Ver registro de acciones</summary><div class="table-scroll"><table><caption class="sr-only">Registro cronológico de la sesión seleccionada</caption><thead><tr><th scope="col">Hora local</th><th scope="col">Acción</th><th scope="col">Detalle</th></tr></thead><tbody id="eventsBody"></tbody></table></div></details></section>
+    <div class="delete-zone"><button id="showDelete" class="danger-link" type="button">Borrar todos los datos de prueba</button><div id="deleteConfirm" hidden><p>Se eliminarán todas las sesiones de este navegador. Exporta primero lo que necesites. Esta acción no se puede deshacer.</p><div class="button-row"><button id="confirmDelete" class="button danger" type="button">Sí, borrar todos los datos</button><button id="cancelDelete" class="button secondary" type="button">Conservar datos</button></div></div></div>
+  </dialog>
+  <dialog id="privacyDialog" class="flow-dialog" aria-labelledby="privacyTitle"><button class="close-dialog" data-close="privacyDialog" aria-label="Cerrar información de datos">×</button><p class="eyebrow">TU PRUEBA, EN ESTE NAVEGADOR</p><h2 id="privacyTitle">Qué se guarda.</h2><p>Al iniciar una sesión de investigador se guardan un código aleatorio, segmento, rol, horarios y acciones de prueba. No pedimos datos de contacto ni creamos cuentas.</p><p>Las búsquedas se registran por su longitud y los productos que encuentran. Su texto no se conserva. El nombre que escribas para una prenda solo aparece en pantalla y no se guarda ni se exporta.</p><p>El registro usa almacenamiento local de este navegador. No enviamos analítica ni resultados a ningún servidor. Las fotografías y el sitio se sirven desde donde se publique la página.</p><p>Puedes exportar cada sesión o borrar todos los registros en Modo investigador. Al borrar datos del navegador también puedes perderlos. La exploración sin sesión activa no se registra.</p><p class="field-hint">El modo investigador es una herramienta local, sin contraseña. Cualquier persona que use este mismo perfil del navegador puede consultar sus sesiones.</p><button class="button primary" data-close="privacyDialog">Entendido</button></dialog>
+  <noscript><div class="noscript">Activa JavaScript para usar el catálogo, las simulaciones y el modo investigador. No necesitas una cuenta.</div></noscript>
+</body>
+</html>
